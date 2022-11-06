@@ -4,21 +4,26 @@
       <div
         class="flex flex-nowrap h-full px-8 mx-auto border-b border-solid border-brand-gray-1"
       >
-        <a href="/" class="flex items-center h-full text-xl">SFamiliar</a>
+        <router-link
+          :to="{ name: 'Home' }"
+          class="flex items-center h-full text-xl"
+          >AppTitle
+        </router-link>
         <nav class="h-full ml-12">
           <ul class="flex h-full p-0 m-0 list-none">
             <li
               v-for="menuItem in menuItems"
-              :key="menuItem"
+              :key="menuItem.text"
               class="h-full ml-9 first:ml-0"
             >
-              <a href="" class="flex items-center h-full py-2.5"
-                ><span
-                  ><font-awesome-icon :icon="menuItem.icon" class="mr-0.5" />{{
-                    menuItem.text
-                  }}</span
-                ></a
-              >
+              <router-link
+                :to="menuItem.url"
+                class="flex items-center h-full py-2.5"
+                ><span>
+                  <font-awesome-icon :icon="menuItem.icon" class="mr-0.5" />
+                  {{ menuItem.text }}
+                </span>
+              </router-link>
             </li>
           </ul>
         </nav>
@@ -33,7 +38,7 @@ export default {
   data() {
     return {
       menuItems: [
-        { text: "Pacientes", url: "/", icon: ["fas", "users"] },
+        { text: "Pacientes", url: "/patients", icon: ["fas", "users"] },
         { text: "Familias", url: "/", icon: ["fa", "people-group"] },
         { text: "Viviendas", url: "/", icon: ["fas", "house-user"] },
         { text: "Factores", url: "/", icon: ["fas", "calculator"] },
