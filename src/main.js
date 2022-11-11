@@ -7,6 +7,8 @@ import { faPeopleGroup } from "@fortawesome/free-solid-svg-icons";
 import { faHouseUser } from "@fortawesome/free-solid-svg-icons";
 import { faCalculator } from "@fortawesome/free-solid-svg-icons";
 import { faChartLine } from "@fortawesome/free-solid-svg-icons";
+import { faTrashCan } from "@fortawesome/free-solid-svg-icons";
+import { faEdit } from "@fortawesome/free-solid-svg-icons";
 
 import App from "./App.vue";
 import "@/assets/tailwind.css";
@@ -18,7 +20,9 @@ library.add(
   faPeopleGroup,
   faHouseUser,
   faCalculator,
-  faChartLine
+  faChartLine,
+  faTrashCan,
+  faEdit
 );
 
 createApp(App)
