@@ -39,7 +39,7 @@ export default {
     return {
       menuItems: [
         { text: "Pacientes", url: "/patients", icon: ["fas", "users"] },
-        { text: "Familias", url: "/", icon: ["fa", "people-group"] },
+        { text: "Familias", url: "/familias", icon: ["fa", "people-group"] },
         { text: "Viviendas", url: "/", icon: ["fas", "house-user"] },
         { text: "Factores", url: "/", icon: ["fas", "calculator"] },
         { text: "Reportes", url: "/", icon: ["fas", "chart-line"] },

@@ -2,11 +2,11 @@
   <div class="flex flex-col mt-16">
     <div class="overflow-x-auto">
       <div class="flex justify-between py-3 pl-2">
-        <h1 class="text-2xl font-bold">Pacientes</h1>
+        <h1 class="text-2xl font-bold">Familias</h1>
       </div>
       <div class="p-1.5 w-full inline-block align-middle">
         <div class="overflow-hidden border rounded-lg">
-          <table class="min-w-full divide-y divide-gray-200">
+          <table class="hover:table-fixed min-w-full divide-y divide-gray-200">
             <thead class="bg-gray-50">
               <tr>
                 <!-- <th
@@ -19,31 +19,31 @@
                   scope="col"
                   class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
                 >
-                  Nombres
+                  Ficha Familiar
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
                 >
-                  Rut
+                  Familia
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
                 >
-                  Edad
-                </th>
-                <th
-                  scope="col"
-                  class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
-                >
-                  Ficha
+                  Direccion
                 </th>
                 <th
                   scope="col"
                   class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
                 >
                   Sector
+                </th>
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase"
+                >
+                  N° integrantes
                 </th>
                 <th
                   scope="col"
@@ -60,26 +60,66 @@
               </tr>
             </thead>
             <tbody class="divide-y divide-gray-200">
-              <tr v-for="patient in displayedPacientes" :key="patient.id">
+              <tr v-for="familia in displayedFamilias" :key="familia.id">
                 <!-- <td
                   class="px-6 py-4 text-sm font-medium text-gray-800 whitespace-nowrap"
                 >
-                  {{ patient.id }}
+                  {{ familia.id }}
                 </td> -->
                 <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                  {{ patient.nombres }}
+                  {{ familia.ficha_familiar }}
+                </td>
+                <td
+                  class="px-6 py-4 text-sm uppercase text-gray-800 whitespace-nowrap"
+                >
+                  {{ familia.familia }}
                 </td>
                 <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                  {{ patient.rut }}
+                  {{ familia.domicilio }}
                 </td>
-                <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                  {{ patient.edad }}
+                <td v-if="familia.sector == 'SB'">
+                  {{ familia.sector }}
+                  <a class="text-orange-500 hover:text-orange-700">
+                    <span>
+                      <font-awesome-icon
+                        :icon="['fas', 'square']"
+                        class="icon alt"
+                      />
+                    </span>
+                  </a>
                 </td>
-                <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                  {{ patient.ficha ?? "Sin ficha" }}
+                <td v-else-if="familia.sector == 'SA'">
+                  {{ familia.sector }}
+                  <a class="text-blue-500 hover:text-blue-700">
+                    <span>
+                      <font-awesome-icon
+                        :icon="['fas', 'square']"
+                        class="icon alt"
+                      />
+                    </span>
+                  </a>
                 </td>
-                <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
-                  {{ patient.sector }}
+                <td v-else>
+                  {{ familia.sector }}
+                  <a class="text-white-500 hover:text-white-700">
+                    <span>
+                      <font-awesome-icon
+                        :icon="['fas', 'square']"
+                        class="icon alt"
+                      />
+                    </span>
+                  </a>
+                </td>
+                <td
+                  class="px-6 py-4 text-sm text-gray-800 text-center whitespace-nowrap"
+                >
+                  {{ familia.num_integrantes }}
+                  <span>
+                    <font-awesome-icon
+                      :icon="['fas', 'users']"
+                      class="mr-1 align-rigth"
+                    />
+                  </span>
                 </td>
                 <td
                   class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap"
@@ -114,14 +154,14 @@
               <div class="flex items-center justify-center">
                 <router-link
                   v-if="previousPage"
-                  :to="{ name: 'Patients', query: { page: previousPage } }"
+                  :to="{ name: 'Familias', query: { page: previousPage } }"
                   class="mx-3 text-sm font-semibold text-brand-blue-1"
                 >
                   Anterior
                 </router-link>
                 <router-link
                   v-if="nextPage"
-                  :to="{ name: 'Patients', query: { page: nextPage } }"
+                  :to="{ name: 'Familias', query: { page: nextPage } }"
                   class="mx-3 text-sm font-semibold text-brand-blue-1"
                 >
                   Siguiente
@@ -138,10 +178,10 @@
 import axios from "axios";
 
 export default {
-  name: "PatientsView",
+  name: "FamiliasView",
   data() {
     return {
-      patients: [],
+      familias: [],
     };
   },
   computed: {
@@ -157,22 +197,22 @@ export default {
     },
     nextPage() {
       const nextPage = this.currentPage + 1;
-      const maxPage = this.patients.length / 10; // 100/ 10 = 10
+      const maxPage = this.familias.length / 10; // 100/ 10 = 10
       return nextPage <= maxPage ? nextPage : undefined;
     },
-    displayedPacientes() {
+    displayedFamilias() {
       const pageNumber = this.currentPage;
       const firstPatIndex = (pageNumber - 1) * 10; // 1 -1 = 0 * 10 = 0
       const lastPatIndex = pageNumber * 10;
-      return this.patients.slice(firstPatIndex, lastPatIndex);
+      return this.familias.slice(firstPatIndex, lastPatIndex);
     },
   },
   async mounted() {
     const response = await axios.get(
-      "http://sfamiliar-api.test/api/v1/pacientes/"
+      "http://sfamiliar-api.test/api/v1/familias/"
     );
-    this.patients = response.data.data;
-    console.log(this.patients, "patients");
+    this.familias = response.data.data;
+    console.log(this.familias, "familias");
   },
 };
 </script>
