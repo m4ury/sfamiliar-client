@@ -169,8 +169,8 @@ export default {
   },
   async mounted() {
     const response = await axios.get(
-      "https://sfamiliar-api.test/api/v1/pacientes"
-      //"https://sfamiliar-api.up.railway.app/api/v1/pacientes"
+      //"https://sfamiliar-api.test/api/v1/pacientes"
+      "https://sfamiliar-api.up.railway.app/api/v1/pacientes"
     );
     this.patients = response.data.data;
     console.log(this.patients, "patients");
