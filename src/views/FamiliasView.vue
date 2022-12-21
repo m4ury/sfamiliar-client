@@ -209,7 +209,8 @@ export default {
   },
   async mounted() {
     const response = await axios.get(
-      "http://sfamiliar-api.test/api/v1/familias/"
+      "https://sfamiliar-api.test/api/v1/familias"
+      //"https://sfamiliar-api.up.railway.app/api/v1/familias"
     );
     this.familias = response.data.data;
     console.log(this.familias, "familias");
