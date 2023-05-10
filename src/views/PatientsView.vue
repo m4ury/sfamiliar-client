@@ -15,25 +15,46 @@
                 >
                   ID
                 </th> -->
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                >
                   Nombres
                 </th>
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                >
                   Rut
                 </th>
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                >
                   Edad
                 </th>
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                >
                   Ficha
                 </th>
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                >
                   Sector
                 </th>
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase"
+                >
                   Edit
                 </th>
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase"
+                >
                   Delete
                 </th>
               </tr>
@@ -60,17 +81,27 @@
                 <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                   {{ patient.sector }}
                 </td>
-                <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                <td
+                  class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap"
+                >
                   <a class="text-green-500 hover:text-green-700" href="#">
                     <span>
-                      <font-awesome-icon :icon="['fas', 'edit']" class="mr-0.5" />
+                      <font-awesome-icon
+                        :icon="['fas', 'edit']"
+                        class="mr-0.5"
+                      />
                     </span>
                   </a>
                 </td>
-                <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                <td
+                  class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap"
+                >
                   <a class="text-red-500 hover:text-red-700" href="#">
                     <span>
-                      <font-awesome-icon :icon="['fas', 'trash-alt']" class="mr-0.5" />
+                      <font-awesome-icon
+                        :icon="['fas', 'trash-alt']"
+                        class="mr-0.5"
+                      />
                     </span>
                   </a>
                 </td>
@@ -81,12 +112,18 @@
             <div class="flex flex-row flex-nowrap">
               <p class="text-sm flex-grow">Página {{ currentPage }}</p>
               <div class="flex items-center justify-center">
-                <router-link v-if="previousPage" :to="{ name: 'Patients', query: { page: previousPage } }"
-                  class="mx-3 text-sm font-semibold text-brand-blue-1">
+                <router-link
+                  v-if="previousPage"
+                  :to="{ name: 'Patients', query: { page: previousPage } }"
+                  class="mx-3 text-sm font-semibold text-brand-blue-1"
+                >
                   Anterior
                 </router-link>
-                <router-link v-if="nextPage" :to="{ name: 'Patients', query: { page: nextPage } }"
-                  class="mx-3 text-sm font-semibold text-brand-blue-1">
+                <router-link
+                  v-if="nextPage"
+                  :to="{ name: 'Patients', query: { page: nextPage } }"
+                  class="mx-3 text-sm font-semibold text-brand-blue-1"
+                >
                   Siguiente
                 </router-link>
               </div>

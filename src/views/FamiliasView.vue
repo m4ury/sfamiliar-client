@@ -15,25 +15,46 @@
                 >
                   ID
                 </th> -->
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                >
                   Ficha Familiar
                 </th>
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                >
                   Familia
                 </th>
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                >
                   Direccion
                 </th>
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-left text-gray-500 uppercase"
+                >
                   Sector
                 </th>
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase"
+                >
                   N° integrantes
                 </th>
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase"
+                >
                   Edit
                 </th>
-                <th scope="col" class="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase">
+                <th
+                  scope="col"
+                  class="px-6 py-3 text-xs font-bold text-right text-gray-500 uppercase"
+                >
                   Delete
                 </th>
               </tr>
@@ -48,7 +69,9 @@
                 <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
                   {{ familia.ficha_familiar }}
                 </td>
-                <td class="px-6 py-4 text-sm uppercase text-gray-800 whitespace-nowrap">
+                <td
+                  class="px-6 py-4 text-sm uppercase text-gray-800 whitespace-nowrap"
+                >
                   {{ familia.familia }}
                 </td>
                 <td class="px-6 py-4 text-sm text-gray-800 whitespace-nowrap">
@@ -58,7 +81,10 @@
                   {{ familia.sector }}
                   <a class="text-orange-500 hover:text-orange-700">
                     <span>
-                      <font-awesome-icon :icon="['fas', 'square']" class="icon alt" />
+                      <font-awesome-icon
+                        :icon="['fas', 'square']"
+                        class="icon alt"
+                      />
                     </span>
                   </a>
                 </td>
@@ -66,7 +92,10 @@
                   {{ familia.sector }}
                   <a class="text-blue-500 hover:text-blue-700">
                     <span>
-                      <font-awesome-icon :icon="['fas', 'square']" class="icon alt" />
+                      <font-awesome-icon
+                        :icon="['fas', 'square']"
+                        class="icon alt"
+                      />
                     </span>
                   </a>
                 </td>
@@ -74,27 +103,45 @@
                   {{ familia.sector }}
                   <a class="text-white-500 hover:text-white-700">
                     <span>
-                      <font-awesome-icon :icon="['fas', 'square']" class="icon alt" />
+                      <font-awesome-icon
+                        :icon="['fas', 'square']"
+                        class="icon alt"
+                      />
                     </span>
                   </a>
                 </td>
-                <td class="px-6 py-4 text-sm text-gray-800 text-center whitespace-nowrap">
+                <td
+                  class="px-6 py-4 text-sm text-gray-800 text-center whitespace-nowrap"
+                >
                   {{ familia.num_integrantes }}
                   <span>
-                    <font-awesome-icon :icon="['fas', 'users']" class="mr-1 align-rigth" />
+                    <font-awesome-icon
+                      :icon="['fas', 'users']"
+                      class="mr-1 align-rigth"
+                    />
                   </span>
                 </td>
-                <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                <td
+                  class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap"
+                >
                   <a class="text-green-500 hover:text-green-700" href="#">
                     <span>
-                      <font-awesome-icon :icon="['fas', 'edit']" class="mr-0.5" />
+                      <font-awesome-icon
+                        :icon="['fas', 'edit']"
+                        class="mr-0.5"
+                      />
                     </span>
                   </a>
                 </td>
-                <td class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
+                <td
+                  class="px-6 py-4 text-sm font-medium text-right whitespace-nowrap"
+                >
                   <a class="text-red-500 hover:text-red-700" href="#">
                     <span>
-                      <font-awesome-icon :icon="['fas', 'trash-alt']" class="mr-0.5" />
+                      <font-awesome-icon
+                        :icon="['fas', 'trash-alt']"
+                        class="mr-0.5"
+                      />
                     </span>
                   </a>
                 </td>
@@ -105,12 +152,18 @@
             <div class="flex flex-row flex-nowrap">
               <p class="text-sm flex-grow">Página {{ currentPage }}</p>
               <div class="flex items-center justify-center">
-                <router-link v-if="previousPage" :to="{ name: 'Familias', query: { page: previousPage } }"
-                  class="mx-3 text-sm font-semibold text-brand-blue-1">
+                <router-link
+                  v-if="previousPage"
+                  :to="{ name: 'Familias', query: { page: previousPage } }"
+                  class="mx-3 text-sm font-semibold text-brand-blue-1"
+                >
                   Anterior
                 </router-link>
-                <router-link v-if="nextPage" :to="{ name: 'Familias', query: { page: nextPage } }"
-                  class="mx-3 text-sm font-semibold text-brand-blue-1">
+                <router-link
+                  v-if="nextPage"
+                  :to="{ name: 'Familias', query: { page: nextPage } }"
+                  class="mx-3 text-sm font-semibold text-brand-blue-1"
+                >
                   Siguiente
                 </router-link>
               </div>
